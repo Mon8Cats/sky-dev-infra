@@ -25,7 +25,7 @@ module "github_connection" {
 
 }
 
-/*
+
 module "cicd_pipeline_infra" {
   source = "../../modules/d11_cicd_pipeline_wrapper"
 
@@ -36,11 +36,11 @@ module "cicd_pipeline_infra" {
   wi_pool_id = local.wi_pool_id_infra
   wi_pool_name = local.wi_pool_name_infra
   wi_pool_provider_id = local.wi_pool_provider_id_infra
-  github_repository = var.github_repository_infra
+  github_repository = var.repository_infra_github
   github_secret_id = var.secret_id_github
-  parent_connection = module.github_connection.connection_name
-  name_gcp_repo = var.repo_name_in_gcp_infra
-  remote_uri_repo = var.github_repo_uri_infra 
+  connection_parent = module.github_connection.connection_name
+  repo_name_gcp = var.repo_name_infra_gcp
+  repo_uri_remote = var.repo_uri_infra_github 
 
 
   depends_on   = [module.github_connection]
@@ -57,11 +57,11 @@ module "cicd_pipeline_app" {
   wi_pool_id = local.wi_pool_id_app
   wi_pool_name = local.wi_pool_name_app
   wi_pool_provider_id = local.wi_pool_provider_id_app
-  github_repository = var.github_repository_app
+  github_repository = var.repository_app_github
   github_secret_id = var.secret_id_github
-  parent_connection = module.github_connection.connection_name
-  name_gcp_repo = var.repo_name_in_gcp_app
-  remote_uri_repo = var.github_repo_uri_app 
+  connection_parent = module.github_connection.connection_name
+  repo_name_gcp = var.repo_name_app_gcp
+  repo_uri_remote = var.repo_uri_app_github 
 
 
   depends_on   = [module.github_connection]
@@ -91,4 +91,3 @@ module "secret_access_db_password_app" {
   secret_id = var.secret_id_db_password
   service_account_email = module.cicd_pipeline_app.service_account_email
 }
-*/

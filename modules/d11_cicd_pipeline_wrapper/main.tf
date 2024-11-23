@@ -42,12 +42,12 @@ module "github_token_secret_access" {
 
 # (8) repository link
 module "github_repository_link" {
-  source = "../c08_cloudbuild_repository_link"
+  source = "../c09_cloudbuild_repository_link"
 
   region  = var.region
-  parent_connection  = var.parent_connection
-  name_gcp_repo = var.name_gcp_repo
-  remote_uri_repo = var.remote_uri_repo
+  connection_parent  = var.connection_parent
+  repo_name_gcp = var.repo_name_gcp
+  repo_uri_remote = var.repo_uri_remote
 
 }
 

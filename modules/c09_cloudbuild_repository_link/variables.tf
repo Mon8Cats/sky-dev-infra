@@ -10,18 +10,18 @@ variable "region" {
   type        = string
 }
 
-variable "parent_connection" {
+variable "connection_parent" {
   description = "ID of the GitHub token secret in Secret Manager"
   type        = string
 }
 
 
-variable "name_gcp_repo" {
+variable "repo_name_gcp" {
   description = "ID of the GitHub token secret in Secret Manager"
   type        = string
 }
 
-variable "remote_uri_repo" {
+variable "repo_uri_remote" {
   description = "Custom service account email for Cloud Build"
   type        = string
 }
