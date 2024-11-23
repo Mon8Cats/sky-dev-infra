@@ -36,7 +36,24 @@ variable "secret_id_db_user" {
 }
 
 variable "secret_id_db_password" {
-  description = "The db password Secret Id"
+  description = "The db user Secret Id"
   type        = string
 }
 
+###
+
+variable "secret_value_github" {
+  description = "The Github Token Secret value"
+  type        = string
+}
+
+variable "secret_value_db_user" {
+  description = "The db user Secret value"
+  type        = string
+}
+
+
+variable "secret_value_db_password" {
+  description = "The db password Secret value"
+  type        = string
+}
