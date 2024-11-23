@@ -15,7 +15,7 @@ module "enable_apis" {
 
 # github connection
 module "github_connection" {
-  source = "../../modules/c07_cloudbuild_connection"
+  source = "../../modules/c08_cloudbuild_connection"
 
   project_id               = var.project_id
   region                   = var.region

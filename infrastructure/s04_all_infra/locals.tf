@@ -8,12 +8,12 @@ locals {
 
 
   # globally unique names
-  wi_pool_id_infra = "${wi-pool-id-infra}-${var.project_id}"
-  wi_pool_name_infra = "${wi-pool-name-infra}-${var.project_id}"
-  wi_pool_provider_id_infra = "${wi-pool-provider-id-infra}-${var.project_id}"
+  wi_pool_id_infra = "${var.wi_pool_id_infra}-${var.project_id}"
+  wi_pool_name_infra = "${var.wi_pool_name_infra}-${var.project_id}"
+  wi_pool_provider_id_infra = "${var.wi_pool_provider_id_infra}-${var.project_id}"
 
-  wi_pool_id_app = "${wi-pool-id-app}-${var.project_id}"
-  wi_pool_name_app = "${wi-pool-name-app}-${var.project_id}"
-  wi_pool_provider_id_app = "${wi-pool-provider-id-app}-${var.project_id}"
+  wi_pool_id_app = "${var.wi_pool_id_app}-${var.project_id}"
+  wi_pool_name_app = "${var.wi_pool_name_app}-${var.project_id}"
+  wi_pool_provider_id_app = "${var.wi_pool_provider_id_app}-${var.project_id}"
 
 }
