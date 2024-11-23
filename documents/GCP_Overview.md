@@ -71,6 +71,32 @@ gcloud config set project PROJECT_ID
 PROJECT_ID="sky-root"
 PROJECT_NUMBER=262659146932
 REGION="us-central1"
+
 ```
 
 
+## Cloud Storage Bucket
+
+```bash
+gcloud services list --enabled # enabled api list
+gcloud storage buckets list # bucket list
+gcloud storage buckets list --project=PROJECT_ID
+gcloud storage buckets list --filter="LOCATION:US"
+gcloud storage buckets list --format="table(name, location, storageClass)"
+gcloud storage buckets list --format="json"
+gcloud storage buckets list --format="csv(name, location, storageClass)"
+gcloud storage buckets list --filter="name:BUCKET_NAME"
+
+```
+
+
+## Globally Unique Names and IDs (use lower case and hyphens 4-32 characters)
+
+- Project ID
+- Workload Identity Pool ID
+- Workload Identity Provider ID
+- Cloud Storage Bucket for storing logs or artifacts
+- Artifact Registry Repository
+- Cloud Build Trigger Name
+- Cloud Run Service Name
+- Cloud SQL Instance Name

@@ -1,5 +1,5 @@
-# export TF_VAR_project_id="my-gcp-project-id"
-# export TF_VAR_region="my-gcp-project-region"
+# export TF_VAR_project_id="sky-root"
+# export TF_VAR_region="us-central1"
 
 
 module "enable_apis" {
