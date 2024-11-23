@@ -1,10 +1,10 @@
 
-# (3) create a service account for CICD
+# (3) create a service account for cicd
 module "cicd_service_account" {
   source               = "../b03_service_account"
   project_id           = var.project_id
   service_account_name = var.cicd_sa_name
-  display_name         = "CICD Service Account"
+  display_name         = "cicd Service Account"
   description          = "This service account is used for CI/CD operations"
 
   roles = var.cicd_sa_role_list

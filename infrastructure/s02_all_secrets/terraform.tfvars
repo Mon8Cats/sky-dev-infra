@@ -15,3 +15,7 @@ api_list   = [
 secret_id_github = "github_token"
 secret_id_db_user = "db_user"
 secret_id_db_password = "db_password"
+
+secret_data_github = "github_token"
+secret_data_db_user = "db_user"
+secret_data_db_password = "db_password"

@@ -9,10 +9,9 @@ variable "secret_id" {
   type        = string
 }
 
-/*
+
 variable "secret_data" {
   description = "Value of the secret to store in Secret Manager"
   type        = string
   sensitive   = true
 }
-*/

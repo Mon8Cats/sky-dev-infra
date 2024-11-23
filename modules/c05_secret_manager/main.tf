@@ -11,8 +11,14 @@ resource "google_secret_manager_secret" "secret" {
 
 resource "google_secret_manager_secret_version" "secret_version" {
   secret      = google_secret_manager_secret.secret.id
-  secret_data = "dummy_value"
+  secret_data = var.secret_data
 }
+
+resource "google_secret_manager_secret_version" "secret_version2" {
+  secret      = google_secret_manager_secret.secret.id
+  secret_data = var.secret_data
+}
+
 
 
 # POST https://secretmanager.googleapis.com/v1/projects/PROJECT_ID/secrets/SECRET_ID:addVersion

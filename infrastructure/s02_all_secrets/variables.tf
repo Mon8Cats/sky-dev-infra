@@ -42,18 +42,18 @@ variable "secret_id_db_password" {
 
 ###
 
-variable "secret_value_github" {
+variable "secret_data_github" {
   description = "The Github Token Secret value"
   type        = string
 }
 
-variable "secret_value_db_user" {
+variable "secret_data_db_user" {
   description = "The db user Secret value"
   type        = string
 }
 
 
-variable "secret_value_db_password" {
+variable "secret_data_db_password" {
   description = "The db password Secret value"
   type        = string
 }

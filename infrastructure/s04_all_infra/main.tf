@@ -13,38 +13,10 @@ module "enable_apis" {
   api_services = var.api_list
 }
 
-# (5) secrete manager
-module "github_token_secret" {
-  source              = "../modules/c05_secret_manager"
-  project_id          = var.project_id
-  secret_id         = var.secret_id_github
-}
-
-module "secret_db_user" {
-  source              = "../modules/c05_secret_manager"
-  project_id          = var.project_id
-  secret_id         = var.secret_id_db_user
-}
-
-module "secret_db_password" {
-  source              = "../modules/c05_secret_manager"
-  project_id          = var.project_id
-  secret_id         = var.secret_id_db_password
-}
-
-
-module "github_token_secret_access2" {
-  source              = "../modules/c06_secret_access"
-  secret_id = var.secret_id_github
-  service_account_email = local.cloud_build_service_account_email
-}
-
-
-//=============================================
 
 # github connection
 module "github_connection" {
-  source = "../modules/c07_cloudbuild_connection"
+  source = "../../modules/c07_cloudbuild_connection"
 
   project_id               = var.project_id
   region                   = var.region
@@ -52,11 +24,11 @@ module "github_connection" {
   connection_name = var.github_connection_name
   secret_id = var.secret_id_github
 
-  depends_on   = [module.github_token_secret_access2]
 }
 
+/*
 module "cicd_pipeline_infra" {
-  source = "../modules/d11_cicd_pipeline_wrapper"
+  source = "../../modules/d11_cicd_pipeline_wrapper"
 
   project_id = var.project_id
   region = var.region
@@ -77,7 +49,7 @@ module "cicd_pipeline_infra" {
 
 
 module "cicd_pipeline_app" {
-  source = "../modules/d11_cicd_pipeline_wrapper"
+  source = "../../modules/d11_cicd_pipeline_wrapper"
 
   project_id = var.project_id
   region = var.region
@@ -100,23 +72,24 @@ module "cicd_pipeline_app" {
 # (6) secret db_user/db_password access
 
 module "secret_access_db_user_infra" {
-  source              = "../modules/c06_secret_access"
+  source              = "../../modules/c06_secret_access"
   secret_id = var.secret_id_db_user
   service_account_email = module.cicd_pipeline_infra.service_account_email
 }
 module "secret_access_db_user_app" {
-  source              = "../modules/c06_secret_access"
+  source              = "../../modules/c06_secret_access"
   secret_id = var.secret_id_db_user
   service_account_email = module.cicd_pipeline_app.service_account_email
 }
 
 module "secret_access_db_password_infra" {
-  source              = "../modules/c06_secret_access"
+  source              = "../../modules/c06_secret_access"
   secret_id = var.secret_id_db_password
   service_account_email = module.cicd_pipeline_infra.service_account_email
 }
 module "secret_access_db_password_app" {
-  source              = "../modules/c06_secret_access"
+  source              = "../../modules/c06_secret_access"
   secret_id = var.secret_id_db_password
   service_account_email = module.cicd_pipeline_app.service_account_email
 }
+*/
