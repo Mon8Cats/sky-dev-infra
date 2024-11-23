@@ -109,7 +109,7 @@ gcloud secrets list
 gcloud secrets list --format=json
 gcloud secrets describe YOUR_SECRET_NAME
 gcloud secrets versions list db_password
-gcloud secrets versions access latest --secret=db_password
+gcloud secrets versions access latest --secret=github_token
 
 
 ```

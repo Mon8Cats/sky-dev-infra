@@ -42,8 +42,8 @@ secret_id_db_user = "db_user"
 secret_id_db_password = "db_password"
 
 # (6) github connection
-github_app_installation_id = "55957239"
-github_connection_name = "github_connection"
+installation_id_github_app = "55957239"
+connection_name_github = "github_connection"
 
 github_account = "Mon8Cats"
 
@@ -99,15 +99,11 @@ cicd_sa_role_list_infra = [
 wi_pool_id_infra = "wi-pool-infra"
 wi_pool_name_infra = "wi-pool-infra"
 wi_pool_provider_id_infra = "wi-pool-provider-infra"
-github_repository_infra      = "Mon8Cats/sky-dev-infra"
 
-
-
-github_repo_uri_infra = "https://github.com/Mon8Cats/sky-dev-infra.git"
-repo_name_in_gcp_infra = "sky-dev-infra"
-
-
-github_repo_name_infra = "sky-dev-infra"
+repository_infra_github      = "Mon8Cats/sky-dev-infra"
+repo_uri_infra_github = "https://github.com/Mon8Cats/sky-dev-infra.git"
+repo_name_infra_gcp = "sky-dev-infra"
+repo_name_infra_github = "sky-dev-infra"
 
 
 #############################################
@@ -130,10 +126,9 @@ cicd_sa_role_list_app = [
 wi_pool_id_app = "wi-pool-app"
 wi_pool_name_app = "wi-pool-app"
 wi_pool_provider_id_app = "wi-pool-provider-app"
-github_repository_app      = "Mon8Cats/sky-dev-app"
 
-github_repo_name_app = "sky-dev-app"
-
-github_repo_uri_app = "https://github.com/Mon8Cats/sky-dev-app.git"
-repo_name_in_gcp_app = "sky-dev-app"
+repository_app_github      = "Mon8Cats/sky-dev-app"
+repo_name_app_github = "sky-dev-app"
+repo_uri_app_github = "https://github.com/Mon8Cats/sky-dev-app.git"
+repo_name_app_gcp = "sky-dev-app"
 

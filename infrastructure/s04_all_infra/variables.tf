@@ -25,7 +25,7 @@ variable "api_list" {
 }
 
 
-variable "github_connection_name" {
+variable "connection_name_github" {
   description = "The region for the resources"
   type        = string
 }
@@ -35,7 +35,7 @@ variable "secret_id_github" {
   type        = string
 }
 
-variable "github_app_installation_id" {
+variable "installation_id_github_app" {
   description = "The region for the resources"
   type        = string
 }
@@ -84,25 +84,25 @@ variable "wi_pool_provider_id_infra" {
   type        = string
 }
 
-variable "github_repository_infra" {
+variable "repository_infra_github" {
   description = "The region for the resources"
   type        = string
 }
 
 
-variable "github_repo_uri_infra" {
+variable "repo_uri_infra_github" {
   description = "The region for the resources"
   type        = string
 }
 
-variable "repo_name_in_gcp_infra" {
+variable "repo_name_infra_gcp" {
   description = "The region for the resources"
   type        = string
 }
 
 
 
-variable "github_repo_name_infra" {
+variable "repo_name_infra_github" {
   description = "The region for the resources"
   type        = string
 }
@@ -136,23 +136,23 @@ variable "wi_pool_provider_id_app" {
   type        = string
 }
 
-variable "github_repository_app" {
+variable "repository_app_github" {
   description = "The region for the resources"
   type        = string
 }
 
-variable "github_repo_uri_app" {
+variable "repo_uri_app_github" {
   description = "The region for the resources"
   type        = string
 }
 
-variable "repo_name_in_gcp_app" {
+variable "repo_name_app_gcp" {
   description = "The region for the resources"
   type        = string
 }
 
 
-variable "github_repo_name_app" {
+variable "repo_name_app_github" {
   description = "The region for the resources"
   type        = string
 }

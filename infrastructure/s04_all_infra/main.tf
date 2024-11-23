@@ -8,11 +8,10 @@ echo $TF_VAR_region
 
 # (1) enable apis
 module "enable_apis" {
-  source     = "../modules/a01_enable_apis"
+  source     = "../../modules/a01_enable_apis"
   project_id = var.project_id
   api_services = var.api_list
 }
-
 
 # github connection
 module "github_connection" {
@@ -20,8 +19,8 @@ module "github_connection" {
 
   project_id               = var.project_id
   region                   = var.region
-  github_app_installation_id = var.github_app_installation_id
-  connection_name = var.github_connection_name
+  github_app_installation_id = var.installation_id_github_app
+  connection_name = var.connection_name_github
   secret_id = var.secret_id_github
 
 }
