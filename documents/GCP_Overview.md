@@ -100,3 +100,16 @@ gcloud storage buckets list --filter="name:BUCKET_NAME"
 - Cloud Build Trigger Name
 - Cloud Run Service Name
 - Cloud SQL Instance Name
+
+
+## Secret Manager
+
+```bash
+gcloud secrets list
+gcloud secrets list --format=json
+gcloud secrets describe YOUR_SECRET_NAME
+gcloud secrets versions list db_password
+gcloud secrets versions access latest --secret=db_password
+
+
+```

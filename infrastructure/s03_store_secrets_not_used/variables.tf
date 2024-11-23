@@ -11,12 +11,12 @@ variable "region" {
   default = "us-east1"
 }
 
-/*
+
 variable "project_number" {
   description = "Project ID for the GCP project"
   type        = string
 }
-*/
+
 
 
 # secret
