@@ -23,7 +23,8 @@ api_list   = [
     "secretmanager.googleapis.com", # manually enabled
     "artifactregistry.googleapis.com",
     "sqladmin.googleapis.com",
-    "compute.googleapis.com"
+    "compute.googleapis.com",
+    "run.googleapis.com",
 
     #"iamcredentials.googleapis.com",
     #"cloudbuild.googleapis.com",
@@ -129,6 +130,8 @@ cicd_sa_role_list_app = [
   "roles/compute.networkAdmin",
   "roles/source.reader",
   "roles/cloudbuild.builds.builder",
+  "roles/serviceusage.serviceUsageAdmin",
+  "roles/run.admin",
 ]
 
 logs_bucket_name_app = "skydev-app-build-logs"
