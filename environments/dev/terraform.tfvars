@@ -17,6 +17,10 @@ artifact_repository_id = "sky-art"
 secret_id_db_user = "db_user"
 secret_id_db_password = "db_password"
 
+sql_instance_name = "skypostgre"
+sql_db_name = "devdb"
+
+
 
 
 # infra-service-account@win-gke-cicd.iam.gserviceaccount.com
