@@ -75,7 +75,7 @@ module "cloud_sql_postgres" {
   database_name     = var.sql_db_name
   db_user           = data.google_secret_manager_secret_version.db_user.secret_data
   db_password       = data.google_secret_manager_secret_version.db_password.secret_data
-  tier              = "db-n1-standard-1"
+  tier              = "db-perf-optimized-N-2" #"db-n1-standard-1"
   database_version  = "POSTGRES_16"
   enable_private_ip = false
   availability_type = "ZONAL"
