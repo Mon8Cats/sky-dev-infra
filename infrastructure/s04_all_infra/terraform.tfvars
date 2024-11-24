@@ -21,6 +21,9 @@ api_list   = [
     "iam.googleapis.com", # to create service account
     "cloudbuild.googleapis.com",
     "secretmanager.googleapis.com", # manually enabled
+    "artifactregistry.googleapis.com",
+    "sqladmin.googleapis.com",
+    "compute.googleapis.com"
 
     #"iamcredentials.googleapis.com",
     #"cloudbuild.googleapis.com",
@@ -65,11 +68,12 @@ cicd_sa_role_list_infra = [
   "roles/viewer",
   "roles/compute.admin",
   "roles/iam.serviceAccountKeyAdmin",
-  "roles/compute.networkAdmin",
   "roles/source.reader",
   "roles/cloudbuild.builds.builder",
-
-
+  "roles/artifactregistry.admin",
+  "roles/cloudsql.admin",
+  "roles/compute.networkAdmin",
+  "roles/compute.securityAdmin"
 
   #"roles/cloudbuild.builds.builder",
 
