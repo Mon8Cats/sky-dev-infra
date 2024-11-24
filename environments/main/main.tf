@@ -1,12 +1,12 @@
 module "vpc" {
-  source                  = "../../modules/m1_vpc"
+  source                  = "../../modules/f21_vpc"
   network_name            = var.vpc_name
   auto_create_subnetworks = false
   project_id              = var.project_id
 }
 
 module "subnet" {
-  source           = "../../modules/m2_subnet"
+  source           = "../../modules/f22_subnet"
   subnet_name      = var.subnet_name
   subnet_ip_range  = var.subnet_ip_range
   subnet_region    = var.subnet_region
@@ -16,7 +16,7 @@ module "subnet" {
 
 
 module "allow_http_https" {
-  source         = "../../modules/m3_firewall"
+  source         = "../../modules/f23_firewall"
   project_id     = var.project_id
   rule_name      = "allow-http-https"
   network        = module.vpc.network_self_link
@@ -29,7 +29,7 @@ module "allow_http_https" {
 }
 
 module "allow_ssh" {
-  source         = "../../modules/m3_firewall"
+  source         = "../../modules/f23_firewall"
   project_id     = var.project_id
   rule_name      = "allow-ssh"
   network        = module.vpc.network_self_link
@@ -43,7 +43,7 @@ module "allow_ssh" {
 
 
 module "artifact_registry_repository" {
-  source         = "../../modules/m6_artifact_repository"
+  source         = "../../modules/f26_artifact_repository"
   project_id = var.project_id
   region = var.project_region
   repository_id = var.artifact_repository_id # no underscore 4 to 63 characters
@@ -68,7 +68,7 @@ data "google_secret_manager_secret_version" "db_password" {
 
 
 module "cloud_sql_postgres" {
-  source            =  "../../modules/m7_cloud_sql_postgres"
+  source            =  "../../modules/f27_cloud_sql_postgres"
   project_id        = var.project_id
   region            = var.project_region
   instance_name     = var.sql_instance_name
@@ -79,38 +79,5 @@ module "cloud_sql_postgres" {
   database_version  = "POSTGRES_16"
   enable_private_ip = false
   availability_type = "ZONAL"
-  vpc_name          = var.network_name
-}
-
-variable "vpc_name" {
-  description = "Name of the VPC network"
-  type        = string
-}
-
-variable "subnet_name" {
-  description = "Name of the subnet"
-  type        = string
-}
-
-
-variable "subnet_region" {
-  description = "Region for the subnet"
-  type        = string
-}
-
-
-variable "vpc_name" {
-  description = "Name of the VPC network"
-  type        = string
-}
-
-variable "subnet_name" {
-  description = "Name of the subnet"
-  type        = string
-}
-
-
-variable "subnet_region" {
-  description = "Region for the subnet"
-  type        = string
+  vpc_name          = var.vpc_name
 }
