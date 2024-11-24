@@ -83,4 +83,4 @@ steps:
 logsBucket: "gs://skydev-infra-build-logs"
 
 substitutions:
-  BRANCH_NAME: "main"
+  BRANCH_NAME: "dev"
