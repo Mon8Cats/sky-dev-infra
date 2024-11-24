@@ -66,13 +66,10 @@ steps:
   args: 
   - '-c'
   - | 
-      if [ "$BRANCH_NAME" = "dev" ] || [ -d "environments/$BRANCH_NAME/" ]; then
+      if [ -d "environments/$BRANCH_NAME/" ]; then
         cd environments/$BRANCH_NAME      
         terraform apply -auto-approve
       else
-        cd environments/dev     
-        terraform apply -auto-approve
-
         echo "***************************** SKIPPING APPLYING *******************************"
         echo "Branch '$BRANCH_NAME' does not represent an official environment."
         echo "*******************************************************************************"
@@ -83,4 +80,7 @@ steps:
 #options:
 #  logging: CLOUD_LOGGING_ONLY  # This option can be omitted as it's the default behavior for logsBucket
 #logsBucket: "gs://win-gke-cicd-log-${_BRANCH_NAME}"
-logsBucket: "gs://mon-cloud-lab-build-logs"
+logsBucket: "gs://skydev-infra-build-logs"
+
+substitutions:
+  BRANCH_NAME: "main"

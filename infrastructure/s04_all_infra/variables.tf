@@ -67,6 +67,16 @@ variable "cicd_sa_role_list_infra" {
   #default     = ["value1", "value2", "value3"]  # optional default value
 }
 
+
+variable "logs_bucket_name_infra" {
+  description = "The logs bucket name"
+  type        = string
+}
+
+variable "logs_bucket_name_app" {
+  description = "The logs bucket name"
+  type        = string
+}
 # workload identity
 
 variable "wi_pool_id_infra" {

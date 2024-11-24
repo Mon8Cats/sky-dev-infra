@@ -1,4 +1,3 @@
-
 # (3) create a service account for cicd
 module "cicd_service_account" {
   source               = "../b03_service_account"
@@ -25,6 +24,37 @@ module "workload_identity" {
 
   depends_on   = [module.cicd_service_account]
 }
+
+# log bucket
+module "logs_bucket" {
+  source                  = "../../modules/a02_gcs_bucket"
+  project_id              = var.project_id
+  bucket_name             = var.bucket_name
+  location                = var.region  #"US", "EU", "ASIA" multi-regional bucket
+  storage_class           = "STANDARD" # Nearline, Coldline, Archive
+  versioning_enabled      = true
+  enable_retention_policy = true
+  retention_period_days   = 30
+  retention_policy_locked = false
+  lifecycle_rules = [
+    {
+      action_type = "Delete"
+      condition   = { age = 365 }
+    }
+  ]
+
+  depends_on   = [module.enable_apis]
+}
+
+# permission to bucket
+module "cloudbuild_logs_bucket_iam_binding" {
+  source           = "../../modules/a02b_bucket_iam_binding"
+  bucket_name      = var.bucket_name
+  service_account_email   = local.service_account_email
+  role             = "roles/storage.objectAdmin"
+}
+
+
 
 # (5) secret manager - common
 # create token, save token - manual

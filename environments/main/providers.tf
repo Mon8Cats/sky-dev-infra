@@ -9,9 +9,10 @@ terraform {
   }
 
   backend "gcs" {
-    bucket = "montealab-tf-backend"
-    prefix = "main/infra"    
+    bucket = "skyroot-tf-backend"
+    prefix  = "terraform/main/cicd"    
   }
+
 }
 
 # Terraform Provider Block

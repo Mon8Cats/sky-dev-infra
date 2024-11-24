@@ -7,9 +7,10 @@ terraform {
       version = ">= 6.0.0"
     }
   }
+
   backend "gcs" {
-    bucket = "win-gke-infra"
-    prefix = "dev/gke-cluster"    
+    bucket = "skyroot-tf-backend"
+    prefix  = "terraform/dev/cicd"  
   }
 }
 

@@ -73,3 +73,9 @@ variable "repo_uri_remote" {
   description = "Custom service account email for Cloud Build"
   type        = string
 }
+
+variable "bucket_name" {
+  description = "The region for the resources"
+  type        = string
+}
+
