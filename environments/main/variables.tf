@@ -3,11 +3,12 @@ variable "project_id" {
   type        = string
 }
 
-variable "region" {
+variable "project_region" {
   description = "Region in which GCP Resources to be created"
   type = string
-  default = "us-east1"
+  default = "us-central1"
 }
+
 
 
 variable "vpc_name" {
@@ -26,16 +27,115 @@ variable "subnet_region" {
   type        = string
 }
 
-# CIDR IP Ranges
 variable "subnet_ip_range" {
   description = "Subnet IP range"
   type = string
   default = "10.129.0.0/20"
 }
 
-
-variable "artifact_registry_id" {
-  # no underscore 4 to 63 characters
-  description = "artifact registry id"
-  type = string
+variable "artifact_repository_id" {
+  description = "Artifact Repository Id"
+  type        = string
 }
+
+
+
+variable "secret_id_db_user" {
+  description = "The db_password secret id"
+  type        = string
+}
+
+variable "secret_id_db_password" {
+  description = "The db_password secret id"
+  type        = string
+}
+
+
+variable "sql_instance_name" {
+  description = "The db server instance name"
+  type        = string
+}
+
+variable "sql_db_name" {
+  description = "The db server instance name"
+  type        = string
+}
+
+
+
+/*
+variable "wi_sa_id" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "wi_pool_id" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "wi_pool_name" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "wi_pool_provider_id" {
+  description = "The region for the resources"
+  type        = string
+}
+
+
+variable "github_account" {
+  description = "The GitHub Account"
+  type        = string
+}
+
+variable "github_repository" {
+  description = "The region for the resources"
+  type        = string
+}
+
+variable "github_repo_only" {
+  description = "The region for the resources"
+  type        = string
+}
+
+
+
+
+# Environment Variable
+variable "environment" {
+  description = "Environment Variable used as a prefix"
+  type = string
+  default = "dev"
+}
+
+# Business Division
+variable "business_division" {
+  description = "Business Division in the large organization this Infrastructure belongs"
+  type = string
+  default = "sap"
+}
+
+# CIDR IP Ranges
+
+
+variable "pods_ip_range" {
+  description = "Kubernetes Pods IP range"
+  type = string
+  default = "10.11.0.0/21"
+}
+
+variable "services_ip_range" {
+  description = "Kubernetes Services IP range"
+  type = string
+  default = "10.12.0.0/21"
+}
+
+variable "master_ip_range" {
+  description = "Kubernetes Master IP range"
+  type = string
+  default = "10.13.0.0/28"
+}
+*/
+

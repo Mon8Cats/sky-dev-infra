@@ -33,6 +33,7 @@ module "cicd_pipeline_infra" {
   region = var.region
   cicd_sa_name = var.cicd_sa_name_infra
   cicd_sa_role_list = var.cicd_sa_role_list_infra
+  bucket_name = var.logs_bucket_name_infra
   wi_pool_id = local.wi_pool_id_infra
   wi_pool_name = local.wi_pool_name_infra
   wi_pool_provider_id = local.wi_pool_provider_id_infra
@@ -54,6 +55,7 @@ module "cicd_pipeline_app" {
   region = var.region
   cicd_sa_name = var.cicd_sa_name_app
   cicd_sa_role_list = var.cicd_sa_role_list_app
+  bucket_name = var.logs_bucket_name_app
   wi_pool_id = local.wi_pool_id_app
   wi_pool_name = local.wi_pool_name_app
   wi_pool_provider_id = local.wi_pool_provider_id_app

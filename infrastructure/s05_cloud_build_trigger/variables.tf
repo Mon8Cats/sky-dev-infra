@@ -55,6 +55,16 @@ variable "secret_id_db_password" {
   type        = string
 }
 
+variable "logs_bucket_name_infra" {
+  description = "The logs bucket name"
+  type        = string
+}
+
+variable "logs_bucket_name_app" {
+  description = "The logs bucket name"
+  type        = string
+}
+
 # infra ##############################
 variable "cicd_sa_name_infra" {
   description = "The ID of the service account to create (must be unique within the project)"

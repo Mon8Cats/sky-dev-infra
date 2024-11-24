@@ -1,8 +1,13 @@
-# (1) project id
-#project_id = "sky-root"
-#project_number = "650839457214"
-#region     = "my region" # "us-central1"
-#bucket_name = "mon8cats-lab-tf-backend" # unique
+/* No space around =
+export TF_VAR_project_id="sky-root"
+export TF_VAR_project_number="262659146932"
+export TF_VAR_region="us-central1"
+echo $TF_VAR_project_id
+echo $TF_VAR_region
+
+#bucket_name = "should be unique"
+*/
+
 
 
 # (2) api list

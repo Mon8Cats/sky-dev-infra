@@ -7,10 +7,9 @@ terraform {
       version = ">= 6.0.0"
     }
   }
-
   backend "gcs" {
     bucket = "skyroot-tf-backend"
-    prefix  = "terraform/dev/cicd"  
+    prefix = "env/dev"    
   }
 }
 

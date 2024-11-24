@@ -6,10 +6,64 @@ variable "project_id" {
 variable "project_region" {
   description = "Region in which GCP Resources to be created"
   type = string
-  default = "us-east1"
+  default = "us-central1"
 }
 
 
+
+variable "vpc_name" {
+  description = "Name of the VPC network"
+  type        = string
+}
+
+variable "subnet_name" {
+  description = "Name of the subnet"
+  type        = string
+}
+
+
+variable "subnet_region" {
+  description = "Region for the subnet"
+  type        = string
+}
+
+variable "subnet_ip_range" {
+  description = "Subnet IP range"
+  type = string
+  default = "10.129.0.0/20"
+}
+
+variable "artifact_repository_id" {
+  description = "Artifact Repository Id"
+  type        = string
+}
+
+
+
+variable "secret_id_db_user" {
+  description = "The db_password secret id"
+  type        = string
+}
+
+variable "secret_id_db_password" {
+  description = "The db_password secret id"
+  type        = string
+}
+
+
+variable "sql_instance_name" {
+  description = "The db server instance name"
+  type        = string
+}
+
+variable "sql_db_name" {
+  description = "The db server instance name"
+  type        = string
+}
+
+
+
+/*
 variable "wi_sa_id" {
   description = "The region for the resources"
   type        = string
@@ -46,21 +100,7 @@ variable "github_repo_only" {
   type        = string
 }
 
-variable "vpc_name" {
-  description = "Name of the VPC network"
-  type        = string
-}
 
-variable "subnet_name" {
-  description = "Name of the subnet"
-  type        = string
-}
-
-
-variable "subnet_region" {
-  description = "Region for the subnet"
-  type        = string
-}
 
 
 # Environment Variable
@@ -71,18 +111,14 @@ variable "environment" {
 }
 
 # Business Division
-variable "business_divsion" {
+variable "business_division" {
   description = "Business Division in the large organization this Infrastructure belongs"
   type = string
   default = "sap"
 }
 
 # CIDR IP Ranges
-variable "subnet_ip_range" {
-  description = "Subnet IP range"
-  type = string
-  default = "10.129.0.0/20"
-}
+
 
 variable "pods_ip_range" {
   description = "Kubernetes Pods IP range"
@@ -101,3 +137,5 @@ variable "master_ip_range" {
   type = string
   default = "10.13.0.0/28"
 }
+*/
+
