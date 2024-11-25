@@ -116,7 +116,7 @@ module "cloud_run_iam_binding" {
   source       = "../../modules/b03b_service_account_iam_binding"
   project_id   = var.project_id
   cloud_run_sa = "${var.cloud_run_sa_name}@${var.project_id}.iam.gserviceaccount.com"
-  cicd_sa      = "${var.cicd_sa_name_app}${var.project_id}.iam.gserviceaccount.com"
+  cicd_sa      = "${var.cicd_sa_name_app}@${var.project_id}.iam.gserviceaccount.com"
 
    depends_on   = [module.cicd_pipeline_app, module.cloud_run_service_account]
 }
