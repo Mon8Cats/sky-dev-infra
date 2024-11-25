@@ -6,7 +6,6 @@ export TF_VAR_project_number="262659146932"
 export TF_VAR_region="us-central1"
 echo $TF_VAR_project_id
 echo $TF_VAR_region
-
 #bucket_name = "should be unique"
 */
 
@@ -25,9 +24,7 @@ api_list   = [
     #"iamcredentials.googleapis.com",
     #"cloudbuild.googleapis.com",
     #"artifactregistry.googleapis.com",
-    
     #"cloudresourcemanager.googleapis.com",
-
     #"compute.googleapis.com",          # Compute Engine API
     #"run.googleapis.com",              # Cloud Run API
     #"cloudfunctions.googleapis.com",   # Cloud Functions API
@@ -36,6 +33,12 @@ api_list   = [
     #"cloudresourcemanager.googleapis.com", # Resource Manager API
     # Add or remove APIs as needed
   ]
+
+cloud_run_sa_name = "cloud-run-sa"
+cloud_run_sa_role_list = [
+  "roles/secretmanager.secretAccessor",
+  "roles/cloudsql.client",
+]
 
 
 # (5) Secret

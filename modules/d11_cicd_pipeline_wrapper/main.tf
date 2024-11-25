@@ -43,7 +43,7 @@ module "logs_bucket" {
     }
   ]
 
-  depends_on   = [module.enable_apis]
+  depends_on   = [module.cicd_service_account]
 }
 
 # permission to bucket
@@ -52,6 +52,8 @@ module "cloudbuild_logs_bucket_iam_binding" {
   bucket_name      = var.bucket_name
   service_account_email   = local.service_account_email
   role             = "roles/storage.objectAdmin"
+
+  depends_on   = [module.logs_bucket]
 }
 
 

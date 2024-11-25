@@ -25,6 +25,20 @@ variable "api_list" {
 }
 
 
+
+variable "cloud_run_sa_name" {
+  description = "The ID of the service account to create (must be unique within the project)"
+  type        = string
+}
+
+variable "cloud_run_sa_role_list" {
+  type        = list(string)
+  description = "A list of APIs"
+  #default     = ["value1", "value2", "value3"]  # optional default value
+}
+
+
+
 variable "connection_name_github" {
   description = "The region for the resources"
   type        = string

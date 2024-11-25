@@ -13,6 +13,19 @@ module "enable_apis" {
   api_services = var.api_list
 }
 
+
+# (3) create a service account for cloud run
+module "cloud_run_service_account" {
+  source               = "../b03_service_account"
+  project_id           = var.project_id
+  service_account_name = var.cloud_run_sa_name
+  display_name         = "Cloud Run Service Account"
+  description          = "This service account is used for cloud run service"
+
+  roles = var.cloud_run_sa_role_list
+
+}
+
 # github connection
 module "github_connection" {
   source = "../../modules/c08_cloudbuild_connection"
