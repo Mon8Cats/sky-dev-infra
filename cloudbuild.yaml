@@ -42,7 +42,8 @@ steps:
   - | 
       if [ -d "environments/$BRANCH_NAME/" ]; then
         cd environments/$BRANCH_NAME
-        terraform plan
+        echo "Using project ID: ${_PROJECT_ID}"
+        terraform plan -var="project_id=${_PROJECT_ID}"
       else
         for dir in environments/*/
         do 
@@ -53,7 +54,8 @@ steps:
           echo "*************** TERRAFORM PLAN ******************"
           echo "******* At environment: ${env} ********"
           echo "*************************************************"
-          terraform plan || exit 1
+          echo "Using project ID: ${_PROJECT_ID}"
+          terraform plan -var="project_id=${_PROJECT_ID}" || exit 1
           cd ../../
         done
       fi 
@@ -67,8 +69,9 @@ steps:
   - '-c'
   - | 
       if [ -d "environments/$BRANCH_NAME/" ]; then
-        cd environments/$BRANCH_NAME      
-        terraform apply -auto-approve
+        cd environments/$BRANCH_NAME 
+        echo "Using project ID: ${_PROJECT_ID}"     
+        terraform apply -var="project_id=${_PROJECT_ID}" -auto-approve
       else
         echo "***************************** SKIPPING APPLYING *******************************"
         echo "Branch '$BRANCH_NAME' does not represent an official environment."
@@ -83,4 +86,4 @@ steps:
 logsBucket: "gs://skydev-infra-build-logs"
 
 substitutions:
-  BRANCH_NAME: "main"
+  BRANCH_NAME: "dev"

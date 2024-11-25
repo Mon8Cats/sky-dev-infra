@@ -34,13 +34,13 @@ variable "db_password" {
 variable "tier" {
   description = "Machine type tier (e.g., db-f1-micro, db-g1-small, db-n1-standard-1)"
   type        = string
-  default     = "db-f1-micro"
+  default     = "db-n1-standard-1" 
 }
 
 variable "database_version" {
   description = "PostgreSQL version (e.g., POSTGRES_14)"
   type        = string
-  default     = "POSTGRES_14"
+  default     = "POSTGRES_16"
 }
 
 variable "enable_private_ip" {
