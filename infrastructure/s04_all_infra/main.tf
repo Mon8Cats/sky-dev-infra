@@ -1,10 +1,12 @@
 /* No space around =
-export TF_VAR_project_id="mon-cloud-lab"
-export TF_VAR_project_number="583630435909"
+export TF_VAR_project_id="sky-root"
+export TF_VAR_project_number="262659146932"
 export TF_VAR_region="us-central1"
 echo $TF_VAR_project_id
 echo $TF_VAR_region
+#bucket_name = "should be unique"
 */
+
 
 # (1) enable apis
 module "enable_apis" {
@@ -13,18 +15,6 @@ module "enable_apis" {
   api_services = var.api_list
 }
 
-
-# (3) create a service account for cloud run
-module "cloud_run_service_account" {
-  source               = "../b03_service_account"
-  project_id           = var.project_id
-  service_account_name = var.cloud_run_sa_name
-  display_name         = "Cloud Run Service Account"
-  description          = "This service account is used for cloud run service"
-
-  roles = var.cloud_run_sa_role_list
-
-}
 
 # github connection
 module "github_connection" {
@@ -106,3 +96,28 @@ module "secret_access_db_password_app" {
   secret_id = var.secret_id_db_password
   service_account_email = module.cicd_pipeline_app.service_account_email
 }
+
+
+
+# (3) create a service account for cloud run
+module "cloud_run_service_account" {
+  source               = "../../modules/b03_service_account"
+  project_id           = var.project_id
+  service_account_name = var.cloud_run_sa_name
+  display_name         = "Cloud Run Service Account"
+  description          = "This service account is used for cloud run service"
+
+  roles = var.cloud_run_sa_role_list
+
+}
+
+
+module "cloud_run_iam_binding" {
+  source       = "../../modules/b03b_service_account_iam_binding"
+  project_id   = var.project_id
+  cloud_run_sa = "${var.cloud_run_sa_name}@${var.project_id}.iam.gserviceaccount.com"
+  cicd_sa      = "${var.cicd_sa_name_app}${var.project_id}.iam.gserviceaccount.com"
+
+   depends_on   = [module.cicd_pipeline_app, module.cloud_run_service_account]
+}
+
